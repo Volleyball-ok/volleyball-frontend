@@ -5,29 +5,41 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Confirm & Pay</title>
   <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    body {
+      font-family: 'Inter', sans-serif;
+      background-image: url('A_registration_form_for_Okanagan_Volleyball_Cup_20.png'); /* Use your actual image path */
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+    }
+  </style>
 </head>
-<body class="bg-gradient-to-br from-indigo-50 to-blue-100 min-h-screen text-gray-800">
+<body class="relative min-h-screen text-white">
 
-  <!-- HEADER -->
-  <header class="text-center py-10 bg-blue-700 text-white shadow-md">
-    <h1 class="text-4xl font-bold">Confirm Your Registration</h1>
-    <p class="mt-2 text-lg">Let’s make it official!</p>
-  </header>
+  <!-- Overlay -->
+  <div class="absolute inset-0 bg-black bg-opacity-60 backdrop-blur-sm z-0"></div>
 
-  <!-- MAIN -->
-  <main class="max-w-2xl mx-auto bg-white shadow-lg rounded-lg mt-8 p-8 space-y-6">
-    <div>
-      <h2 class="text-xl font-semibold text-gray-700 mb-4">Team Summary</h2>
-      <div id="summary" class="space-y-2 text-gray-700">
-        <!-- Content will be inserted by JS -->
-      </div>
+  <!-- MAIN CONTENT -->
+  <main class="relative z-10 max-w-2xl mx-auto mt-14 mb-12 p-10 rounded-2xl backdrop-blur-lg bg-white/10 border border-white/30 shadow-2xl text-white space-y-6">
+    <div class="text-center">
+      <h1 class="text-4xl md:text-5xl font-extrabold text-purple-300 drop-shadow-lg">Confirm Your Spot ✅</h1>
+      <p class="mt-2 text-md text-gray-200">Please review your info & proceed to payment</p>
     </div>
 
-    <button
-      id="payBtn"
-      class="w-full bg-purple-700 text-white p-4 rounded text-lg font-bold hover:bg-purple-800 transition">
-      Continue to Payment
-    </button>
+    <div id="summary" class="text-white space-y-3 text-lg bg-white/10 p-6 rounded-xl border border-white/20"></div>
+
+    <div class="text-center pt-4">
+      <button
+        id="payBtn"
+        class="bg-purple-600 hover:bg-purple-700 text-white font-bold px-6 py-3 rounded-lg shadow-lg transition duration-200 w-full">
+        Proceed to Payment 💳
+      </button>
+    </div>
+
+    <p class="text-center text-purple-200 text-sm pt-4">
+      If you need to change anything, go back to the registration form.
+    </p>
   </main>
 
   <script>
@@ -35,24 +47,23 @@
     const summary = document.getElementById('summary');
 
     if (!data) {
-      summary.innerHTML = "<p class='text-red-600'>No registration data found. Please go back and fill the form again.</p>";
+      summary.innerHTML = "<p class='text-red-300 font-semibold'>⚠️ No registration data found. Please go back and register again.</p>";
       document.getElementById('payBtn').style.display = "none";
     } else {
       const { teamName, captainName, players, phone, email, pizza, pop } = data;
       summary.innerHTML = `
-        <p><strong>Team Name:</strong> ${teamName}</p>
-        <p><strong>Captain:</strong> ${captainName}</p>
-        <p><strong>Players:</strong> ${players.join(', ')}</p>
-        <p><strong>Phone:</strong> ${phone}</p>
-        <p><strong>Email:</strong> ${email}</p>
-        <p><strong>Pizza:</strong> ${pizza || 'None selected'}</p>
-        <p><strong>Pop:</strong> ${pop}</p>
+        <p><span class="font-semibold text-purple-200">🏐 Team Name:</span> ${teamName}</p>
+        <p><span class="font-semibold text-purple-200"> Captain:</span> ${captainName}</p>
+        <p><span class="font-semibold text-purple-200"> Players:</span> ${players.join(', ') || 'None'}</p>
+        <p><span class="font-semibold text-purple-200"> Phone:</span> ${phone}</p>
+        <p><span class="font-semibold text-purple-200"> Email:</span> ${email}</p>
+        <p><span class="font-semibold text-purple-200"> Pizza:</span> ${pizza || 'None selected'}</p>
+        <p><span class="font-semibold text-purple-200"> Pop:</span> ${pop || 'None selected'}</p>
       `;
     }
 
     document.getElementById('payBtn').addEventListener('click', () => {
-      // Square payment link – replace this with your actual link
-      window.location.href = "https://square.link/u/EdynZgnF";
+      window.location.href = "https://square.link/u/EdynZgnF"; // Replace with your real link
     });
   </script>
 </body>

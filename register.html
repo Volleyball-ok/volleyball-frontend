@@ -3,69 +3,78 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Team Registration - Volleyball Okanagan</title>
+  <title>Register Your Team - Volleyball Okanagan</title>
   <script src="https://cdn.tailwindcss.com"></script>
   <style>
     body {
-      background-image: linear-gradient(to right, #fdfbfb, #ebedee);
       font-family: 'Inter', sans-serif;
+      background-image: url('A_registration_form_for_Okanagan_Volleyball_Cup_20.png');
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
     }
   </style>
 </head>
-<body class="min-h-screen flex items-center justify-center py-12 px-4">
+<body class="relative min-h-screen">
+  <!-- Overlay Blur -->
+  <div class="absolute inset-0 bg-black bg-opacity-60 backdrop-blur-sm z-0"></div>
 
-  <main class="bg-white p-10 rounded-2xl shadow-2xl w-full max-w-2xl">
-    <div class="mb-8 text-center">
-      <h1 class="text-4xl font-extrabold text-gray-800">Register Your Team</h1>
-      <p class="mt-2 text-gray-500 text-sm">Volleyball Okanagan Tournament 2025</p>
+  <!-- Main Form Card -->
+  <main class="relative z-10 max-w-2xl mx-auto mt-14 mb-12 p-10 rounded-2xl backdrop-blur-lg bg-white/10 border border-white/30 shadow-2xl text-white space-y-6">
+    <div class="text-center">
+      <h1 class="text-4xl md:text-5xl font-extrabold text-purple-300 drop-shadow-lg">Register Your Squad 🏐</h1>
+      <p class="mt-2 text-sm text-gray-200">Okanagan Volleyball Tournament 2025</p>
     </div>
 
     <form id="registerForm" action="payment.html" method="GET" class="space-y-6">
 
       <div>
-        <label class="block text-gray-700 font-medium mb-1">Team Name</label>
-        <input type="text" name="teamName" class="w-full border border-gray-300 rounded-lg px-4 py-2 focus:outline-none focus:ring-2 focus:ring-purple-500" required>
+        <label class="block mb-1 text-sm font-medium">Team Name</label>
+        <input type="text" name="teamName" class="w-full rounded-md px-4 py-2 bg-white/20 border border-white/30 placeholder-gray-200 focus:outline-none focus:ring-2 focus:ring-purple-400" required>
       </div>
 
       <div>
-        <label class="block text-gray-700 font-medium mb-1">Captain Name</label>
-        <input type="text" name="captainName" class="w-full border border-gray-300 rounded-lg px-4 py-2 focus:outline-none focus:ring-2 focus:ring-purple-500" required>
+        <label class="block mb-1 text-sm font-medium">Captain Name</label>
+        <input type="text" name="captainName" class="w-full rounded-md px-4 py-2 bg-white/20 border border-white/30 placeholder-gray-200 focus:outline-none focus:ring-2 focus:ring-purple-400" required>
       </div>
 
       <div>
-        <label class="block text-gray-700 font-medium mb-1">Add Players (Max 3)</label>
+        <label class="block mb-1 text-sm font-medium">Add Players (Max 3)</label>
         <div id="playerList" class="space-y-2 mb-1"></div>
-        <button type="button" onclick="addPlayer()" class="text-purple-600 hover:underline text-sm font-medium">+ Add Player</button>
+        <button type="button" onclick="addPlayer()" class="text-purple-300 hover:underline text-sm">+ Add Player</button>
       </div>
 
       <div>
-        <label class="block text-gray-700 font-medium mb-1">Contact Phone</label>
-        <input type="tel" name="phone" class="w-full border border-gray-300 rounded-lg px-4 py-2 focus:outline-none focus:ring-2 focus:ring-purple-500" required>
+        <label class="block mb-1 text-sm font-medium">Contact Phone</label>
+        <input type="tel" name="phone" class="w-full rounded-md px-4 py-2 bg-white/20 border border-white/30 placeholder-gray-200 focus:outline-none focus:ring-2 focus:ring-purple-400" required>
       </div>
 
       <div>
-        <label class="block text-gray-700 font-medium mb-1">Email Address</label>
-        <input type="email" name="email" class="w-full border border-gray-300 rounded-lg px-4 py-2 focus:outline-none focus:ring-2 focus:ring-purple-500" required>
+        <label class="block mb-1 text-sm font-medium">Email Address</label>
+        <input type="email" name="email" class="w-full rounded-md px-4 py-2 bg-white/20 border border-white/30 placeholder-gray-200 focus:outline-none focus:ring-2 focus:ring-purple-400" required>
       </div>
 
-      <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
-        <div>
-          <label class="block text-gray-700 font-medium mb-1">Pizza Preference</label>
-          <input type="text" name="pizza" placeholder="Optional" class="w-full border border-gray-300 rounded-lg px-4 py-2 focus:outline-none focus:ring-2 focus:ring-purple-500">
-        </div>
-
-        <div>
-          <label class="block text-gray-700 font-medium mb-1">Preferred Pop</label>
-          <input type="text" name="pop" placeholder="Optional" class="w-full border border-gray-300 rounded-lg px-4 py-2 focus:outline-none focus:ring-2 focus:ring-purple-500">
-        </div>
+      <div>
+        <label class="block mb-1 text-sm font-medium">Your Pizza Choice 🍕</label>
+        <input type="text" name="pizza" placeholder="E.g. Pepperoni, Veggie" class="w-full rounded-md px-4 py-2 bg-white/20 border border-white/30 placeholder-gray-200 focus:outline-none focus:ring-2 focus:ring-purple-400" required>
       </div>
 
-      <div class="pt-6 text-center">
-        <button type="submit" class="bg-purple-600 hover:bg-purple-700 text-white font-bold px-6 py-3 rounded-lg shadow-lg transition">
+      <div>
+        <label class="block mb-1 text-sm font-medium">Preferred Pop 🥤</label>
+        <input type="text" name="pop" placeholder="E.g. Coke, Sprite" class="w-full rounded-md px-4 py-2 bg-white/20 border border-white/30 placeholder-gray-200 focus:outline-none focus:ring-2 focus:ring-purple-400" required>
+      </div>
+
+      <div class="pt-4 text-center">
+        <button type="submit" class="bg-purple-600 hover:bg-purple-700 text-white font-bold px-6 py-3 rounded-lg shadow-lg transition duration-200">
           Continue to Payment
         </button>
       </div>
     </form>
+
+    <p class="mt-6 text-center text-lg font-semibold text-purple-200 animate-pulse">
+      📲 You’ll be contacted via <span class="underline decoration-dotted">text</span> with your match time.<br />
+      💵 <span class="italic">Cash prize</span> will be revealed once all teams register.
+    </p>
   </main>
 
   <script>
@@ -78,7 +87,7 @@
       input.type = 'text';
       input.name = `player${playerCount + 1}`;
       input.placeholder = `Player ${playerCount + 1} Name`;
-      input.className = "w-full border border-gray-300 rounded-lg px-4 py-2";
+      input.className = "w-full rounded-md px-4 py-2 bg-white/20 border border-white/30 placeholder-gray-200";
       list.appendChild(input);
       playerCount++;
     }
@@ -104,6 +113,5 @@
       localStorage.setItem('registration', JSON.stringify(data));
     });
   </script>
-
 </body>
 </html>
